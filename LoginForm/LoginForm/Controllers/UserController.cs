@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,37 +28,38 @@ namespace LoginForm.Controllers
 
         [HttpPost]
         [ActionName("Register")]
-        [ValidateAntiForgeryToken]
         public ActionResult Register_Post(User1 user)
         {
-            if (ModelState.IsValid)
-            {
-                if (db.Users.Any(u => u.UserName == user.UserName))
+                if (ModelState.IsValid)
                 {
-                    ModelState.AddModelError("UserName", "UserName is already taken");
-                    return View(user);
+                    // Create a new User entity based on the user input
+                    var newUser = new User1
+                    {
+                        Name = user.Name,
+                        DOB = user.DOB,
+                        UserName = user.UserName,
+                        Password = user.Password,
+                        Gender = user.Gender,
+                        UserType = user.UserType
+                    };
+
+                    // Add the new user entity to the context
+                    db.Users.Add(newUser);
+
+                    // Save changes to the database
+                    db.SaveChanges();
+
+                    ModelState.Clear();
+                    TempData["Success"] = "Registration Successful! You can now login";
+
+                    return RedirectToAction("Login");
                 }
+            
 
-
-                User1 newUser = new User1
-                {
-                    Name = user.Name,
-                    DOB = user.DOB,
-                    Gender = user.Gender,
-                    UserName = user.UserName,
-                    Password = user.Password,
-                    UserType = user.UserType
-                };
-
-                db.Users.Add(newUser);
-                db.Entry(newUser).Reload();
-                db.SaveChanges();
-                ModelState.Clear();
-                TempData["Success"] = "Registration Successfull !  You can now login";
-                return RedirectToAction("Login","User");
-            }
+            // If ModelState is not valid, return the view with validation errors
             return View(user);
         }
+
 
         [HttpGet]
         public ActionResult Login()
