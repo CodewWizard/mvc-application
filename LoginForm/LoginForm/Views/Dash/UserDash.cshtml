@@ -1,0 +1,21 @@
+﻿@model BuisnessLayer.User1
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+</head>
+<body>
+    <h2>User Dashboard !</h2>
+    <h1>Hello @Session["Name"].ToString()!</h1>
+
+
+    <div>
+        @Html.ActionLink("Logout", "Login", "User", null, new { @class = "btn btn-dark" })
+
+    </div>
+</body>
+</html>

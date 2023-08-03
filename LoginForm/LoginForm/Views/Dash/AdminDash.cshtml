@@ -1,0 +1,38 @@
+﻿@using BuisnessLayer
+@model List<User1>
+
+
+<br />
+<h3>Welcome! Admin @Session["Name"].ToString().</h3>
+
+<br />
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>UserID</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Username</th>
+            <th>Gender</th>
+            <th>UserType</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.DOB.ToShortDateString()</td>
+                <td>@user.UserName</td>
+                <td>@user.Gender</td>
+                <td>@user.UserType</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Logout", "Login", "User", null, new { @class = "btn btn-success col-md-2" })
+
+</div>
