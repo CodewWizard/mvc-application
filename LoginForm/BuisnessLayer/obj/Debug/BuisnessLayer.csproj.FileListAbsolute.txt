@@ -3,3 +3,9 @@ C:\Users\MadihaMujawar\source\repos\LoginForm\BuisnessLayer\bin\Debug\BuisnessLa
 C:\Users\MadihaMujawar\source\repos\LoginForm\BuisnessLayer\obj\Debug\BuisnessLayer.csproj.CoreCompileInputs.cache
 C:\Users\MadihaMujawar\source\repos\LoginForm\BuisnessLayer\obj\Debug\BuisnessLayer.dll
 C:\Users\MadihaMujawar\source\repos\LoginForm\BuisnessLayer\obj\Debug\BuisnessLayer.pdb
+C:\Users\MadihaMujawar\source\repos\MVC-Application\LoginForm\BuisnessLayer\bin\Debug\BuisnessLayer.dll
+C:\Users\MadihaMujawar\source\repos\MVC-Application\LoginForm\BuisnessLayer\bin\Debug\BuisnessLayer.pdb
+C:\Users\MadihaMujawar\source\repos\MVC-Application\LoginForm\BuisnessLayer\obj\Debug\BuisnessLayer.csproj.AssemblyReference.cache
+C:\Users\MadihaMujawar\source\repos\MVC-Application\LoginForm\BuisnessLayer\obj\Debug\BuisnessLayer.csproj.CoreCompileInputs.cache
+C:\Users\MadihaMujawar\source\repos\MVC-Application\LoginForm\BuisnessLayer\obj\Debug\BuisnessLayer.dll
+C:\Users\MadihaMujawar\source\repos\MVC-Application\LoginForm\BuisnessLayer\obj\Debug\BuisnessLayer.pdb

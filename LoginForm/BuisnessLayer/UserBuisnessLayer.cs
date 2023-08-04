@@ -16,7 +16,7 @@ namespace BuisnessLayer
             get
             {
                 string connectionString =
-                    ConfigurationManager.ConnectionStrings["UserContext"].ConnectionString;
+                    ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
 
                 List<User1> employees = new List<User1>();
 
@@ -47,7 +47,7 @@ namespace BuisnessLayer
         public void AddUser(User1 user)
         {
             string connectionString =
-            ConfigurationManager.ConnectionStrings["UserContext"].ConnectionString;
+            ConfigurationManager.ConnectionStrings["Default"].ConnectionString;
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {

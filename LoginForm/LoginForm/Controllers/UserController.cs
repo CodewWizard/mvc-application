@@ -30,34 +30,26 @@ namespace LoginForm.Controllers
         [ActionName("Register")]
         public ActionResult Register_Post(User1 user)
         {
-                if (ModelState.IsValid)
+            UserBuisnessLayer userBuisnessLayer = new UserBuisnessLayer();
+
+            if (ModelState.IsValid)
+            {
+                 if (db.Users.Any(u => u.UserName == user.UserName))
                 {
-                    // Create a new User entity based on the user input
-                    var newUser = new User1
-                    {
-                        Name = user.Name,
-                        DOB = user.DOB,
-                        UserName = user.UserName,
-                        Password = user.Password,
-                        Gender = user.Gender,
-                        UserType = user.UserType
-                    };
-
-                    // Add the new user entity to the context
-                    db.Users.Add(newUser);
-
-                    // Save changes to the database
-                    db.SaveChanges();
-
-                    ModelState.Clear();
-                    TempData["Success"] = "Registration Successful! You can now login";
-
-                    return RedirectToAction("Login");
+                    ModelState.AddModelError("UserName","Username already taken.");
+                    return View(user);
                 }
-            
 
-            // If ModelState is not valid, return the view with validation errors
-            return View(user);
+                if (db.Users.Any(u => u.Id == user.Id))
+                {
+                    ModelState.AddModelError("Id","Id Should be Unique.");
+                    return View(user);
+                }
+                
+                    userBuisnessLayer.AddUser(user);
+                    return RedirectToAction("Welcome","User");
+            }
+            return View();
         }
 
 
@@ -86,12 +78,16 @@ namespace LoginForm.Controllers
                         return RedirectToAction("UserDash", "Dash");
                     }
                 }
-                ModelState.AddModelError("", "Invalid UserName or password");
+                ModelState.AddModelError("", "Invalid Username or Password");
                 return View();
             }
         }
 
-        
+        public ActionResult Welcome()
+        {
+     
+            return View();
+        }
 
     }
 }

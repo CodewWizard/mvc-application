@@ -175,6 +175,7 @@
     <Content Include="Views\Shared\_navbar.cshtml" />
     <Content Include="Views\Dash\AdminDash.cshtml" />
     <Content Include="Views\Dash\UserDash.cshtml" />
+    <Content Include="Views\User\Welcome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

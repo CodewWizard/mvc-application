@@ -1,6 +1,6 @@
 ﻿@model BuisnessLayer.User1
 @{
-    ViewBag.Title = "User DashBoard";
+    ViewBag.Title = "Welcome";
 }
 
 <!DOCTYPE html>
@@ -9,13 +9,13 @@
     <title>User Dashboard</title>
 </head>
 <body>
-    <br/>
+    <br />
     <center>
-        <h1>Hello @Session["Name"].ToString()!</h1>
-
+        <h1>WELCOME!</h1>
+        <h2>Thank you for Registering!</h2>
         <br/>
         <div>
-            @Html.ActionLink("LOGOUT", "Login", "User", null, new { @class = "btn btn-outline-success" })
+            @Html.ActionLink("LOGOUT", "Index", "User", null, new { @class = "btn btn-outline-success" })
 
         </div>
     </center>
